@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<title>Reviews & Why IntakeAI Wins | IntakeAI.system</title>
+<meta name="description" content="See what real contractors say about IntakeAI — and how we stack up against hiring a receptionist, using voicemail, or doing it yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0d1117;
+    --surface2: #111820;
+    --border: rgba(255,255,255,0.05);
+    --border2: rgba(255,255,255,0.09);
+    --text: #eef2f7;
+    --muted: #6b7a8d;
+    --accent: #00a854;
+    --accent2: #00c965;
+    --red: #c01f1f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100vw; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── CURSOR ── */
+  * { cursor: none !important; }
+  #cursor {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.2s;
+    mix-blend-mode: screen;
+  }
+  #cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(0,168,84,0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.08s ease;
+  }
+  @media (hover: none) { #cursor, #cursor-ring { display: none; } * { cursor: auto !important; } }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 62px;
+    background: rgba(8,12,16,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    padding: 0 6vw;
+    gap: 40px;
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .nav-logo span {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 16px; color: var(--text);
+  }
+  .nav-logo span em { color: var(--accent); font-style: normal; }
+  .nav-links { display: flex; list-style: none; gap: 32px; margin-left: auto; }
+  .nav-links a {
+    font-size: 13px; font-weight: 600; color: var(--muted);
+    text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-cta {
+    background: var(--accent); color: var(--bg) !important;
+    padding: 8px 18px; border-radius: 8px; font-weight: 700 !important;
+    transition: all 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent2) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 6vw 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%; transform: translateX(-50%);
+    width: min(700px, 100vw);
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(0,168,84,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(0,168,84,0.3);
+    background: rgba(0,168,84,0.07);
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p {
+    font-size: 18px; color: var(--muted);
+    max-width: 560px; margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  /* ── OVERALL SCORE BANNER ── */
+  .score-banner {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding: 40px 6vw;
+    background: var(--surface);
+    border-top: 1px solid var(--border2);
+    border-bottom: 1px solid var(--border2);
+  }
+  .score-stat { text-align: center; }
+  .score-stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px; font-weight: 900;
+    color: var(--accent); line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .score-stat .stars-row {
+    font-size: 22px; color: #f5a623;
+    letter-spacing: 2px; margin: 4px 0;
+  }
+  .score-stat .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ── REVIEWS GRID ── */
+  .reviews-section {
+    padding: 100px 6vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .section-sub {
+    font-size: 16px; color: var(--muted);
+    max-width: 520px; margin-bottom: 56px;
+    line-height: 1.7;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .review-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-family: 'Fraunces', serif;
+    font-size: 120px; font-weight: 900;
+    color: rgba(0,168,84,0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .review-card:hover {
+    border-color: rgba(0,168,84,0.3);
+    transform: translateY(-3px);
+  }
+  .review-card.featured {
+    border-color: rgba(0,168,84,0.4);
+    background: linear-gradient(135deg, rgba(0,168,84,0.06), var(--surface));
+    grid-column: span 1;
+  }
+  .review-stars { font-size: 16px; color: #f5a623; letter-spacing: 2px; margin-bottom: 16px; }
+  .review-platform {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .review-text {
+    font-size: 14.5px; line-height: 1.7;
+    color: #ccd4de; margin-bottom: 24px;
+    font-style: italic;
+  }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 40px; height: 40px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .review-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .review-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .review-verified {
+    margin-left: auto;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--accent);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .review-verified::before {
+    content: '✓';
+    width: 16px; height: 16px;
+    background: rgba(0,168,84,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison-section {
+    padding: 100px 6vw;
+    background: var(--surface);
+    border-top: 1px solid var(--border2);
+  }
+  .comparison-wrap { max-width: 1100px; margin: 0 auto; }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border2);
+    margin-top: 56px;
+  }
+  .comparison-table th {
+    padding: 20px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid var(--border2);
+  }
+  .comparison-table th:first-child { text-align: left; }
+  .comparison-table th.highlight {
+    background: rgba(0,168,84,0.1);
+    color: var(--accent);
+    position: relative;
+  }
+  .comparison-table th.highlight::after {
+    content: '← Best Choice';
+    position: absolute;
+    top: -28px; left: 50%; transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 10px; font-weight: 800;
+    padding: 4px 12px; border-radius: 100px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .comparison-table td {
+    padding: 18px 24px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .comparison-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 14px;
+  }
+  .comparison-table td.highlight {
+    background: rgba(0,168,84,0.04);
+    color: var(--text);
+    font-weight: 600;
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .comparison-table tr:hover td.highlight { background: rgba(0,168,84,0.07); }
+
+  .check { color: var(--accent); font-size: 18px; font-weight: 700; }
+  .cross { color: var(--red); font-size: 18px; }
+  .partial { color: #f5a623; font-size: 13px; font-weight: 600; }
+
+  /* price row */
+  .price-tag {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 900;
+  }
+  .price-tag.good { color: var(--accent); }
+  .price-tag.bad { color: var(--red); }
+  .price-tag.mid { color: #f5a623; }
+
+  /* ── COMPETITOR CALLOUT CARDS ── */
+  .competitor-section {
+    padding: 100px 6vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .competitor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .competitor-card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+  }
+  .competitor-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .competitor-verdict {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 14px; line-height: 1.2;
+  }
+  .competitor-verdict.bad { color: #e06060; }
+  .competitor-verdict.mid { color: #f5a623; }
+  .competitor-desc {
+    font-size: 13.5px; color: var(--muted); line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .competitor-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    padding: 4px 10px; border-radius: 100px;
+    letter-spacing: 0.06em;
+  }
+  .competitor-tag.overpriced { background: rgba(192,31,31,0.12); color: #e06060; border: 1px solid rgba(192,31,31,0.2); }
+  .competitor-tag.limited { background: rgba(245,166,35,0.12); color: #f5a623; border: 1px solid rgba(245,166,35,0.2); }
+  .competitor-tag.complex { background: rgba(107,122,141,0.12); color: var(--muted); border: 1px solid var(--border2); }
+
+  /* ── WINNER BANNER ── */
+  .winner-banner {
+    margin: 0 6vw 100px;
+    background: linear-gradient(135deg, rgba(0,168,84,0.12), rgba(0,168,84,0.04));
+    border: 1px solid rgba(0,168,84,0.25);
+    border-radius: 20px;
+    padding: 48px 56px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .winner-banner::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,168,84,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .winner-score {
+    flex-shrink: 0;
+    width: 100px; height: 100px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+  }
+  .winner-score .big { font-size: 32px; font-weight: 900; color: var(--bg); line-height: 1; }
+  .winner-score .small { font-size: 11px; font-weight: 700; color: rgba(2,26,12,0.7); }
+  .winner-text h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 900;
+    margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+  .winner-text p { font-size: 15px; color: var(--muted); max-width: 500px; line-height: 1.65; }
+  .winner-cta {
+    margin-left: auto; flex-shrink: 0;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 700;
+    padding: 14px 28px; border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .winner-cta:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,168,84,0.35); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border2);
+    padding: 40px 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer p { font-size: 13px; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; font-size: 13px; }
+  footer a:hover { color: var(--text); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .reviews-grid, .competitor-grid { grid-template-columns: 1fr 1fr; }
+    .score-banner { gap: 28px; }
+    .winner-banner { flex-direction: column; text-align: center; padding: 36px 28px; }
+    .winner-cta { margin: 0 auto; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 5vw; gap: 0; }
+    .nav-links { display: none; }
+    .hero { padding: 110px 5vw 60px; }
+    .reviews-grid, .competitor-grid { grid-template-columns: 1fr; }
+    .score-banner { gap: 20px; padding: 32px 5vw; }
+    .score-stat .num { font-size: 36px; }
+    .comparison-table { font-size: 12px; }
+    .comparison-table td, .comparison-table th { padding: 12px 10px; }
+    .comparison-table th.highlight::after { display: none; }
+    .reviews-section, .comparison-section, .competitor-section { padding: 64px 5vw; }
+    .winner-banner { margin: 0 5vw 60px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+      <defs>
+        <linearGradient id="g1" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#00e87a"/><stop offset="100%" stop-color="#006b3a"/></linearGradient>
+        <linearGradient id="g2" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#00ff99" stop-opacity="0.9"/><stop offset="100%" stop-color="#00a854" stop-opacity="0.5"/></linearGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="1" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect width="40" height="40" rx="11" fill="#080c10"/>
+      <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="10.25" fill="none" stroke="url(#g1)" stroke-width="1.5" opacity="0.6"/>
+      <path d="M10 27 Q5 20 10 13" stroke="url(#g1)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M13 25 Q9 20 13 15" stroke="url(#g1)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M16 23 Q13 20 16 17" stroke="url(#g1)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M30 27 Q35 20 30 13" stroke="url(#g2)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M27 25 Q31 20 27 15" stroke="url(#g2)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M24 23 Q27 20 24 17" stroke="url(#g2)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <rect x="18.5" y="11" width="3" height="18" rx="1.5" fill="url(#g1)"/>
+      <circle cx="20" cy="20" r="4" fill="#080c10"/>
+      <circle cx="20" cy="20" r="3" fill="url(#g2)" filter="url(#glow)"/>
+      <circle cx="20" cy="20" r="1.5" fill="white"/>
+    </svg>
+    <span>IntakeAI<em>.system</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#calculator">ROI Calculator</a></li>
+    <li><a href="reviews.html" class="active">Reviews</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="section-label">★★★★★ Rated by Real Contractors</div>
+  <h1>They Were Skeptical.<br><em>Then They Saw Results.</em></h1>
+  <p>Read what real home service business owners say after switching to IntakeAI — and see exactly how we compare to every alternative.</p>
+</section>
+
+<!-- SCORE BANNER -->
+<div class="score-banner">
+  <div class="score-stat">
+    <div class="num">4.9</div>
+    <div class="stars-row">★★★★★</div>
+    <div class="label">Average Rating</div>
+  </div>
+  <div class="score-stat">
+    <div class="num">200+</div>
+    <div class="stars-row" style="font-size:14px;letter-spacing:1px;">verified clients</div>
+    <div class="label">Businesses Using IntakeAI</div>
+  </div>
+  <div class="score-stat">
+    <div class="num">98%</div>
+    <div class="stars-row" style="font-size:14px;letter-spacing:1px;">would recommend</div>
+    <div class="label">Recommend to Others</div>
+  </div>
+  <div class="score-stat">
+    <div class="num">3 days</div>
+    <div class="stars-row" style="font-size:14px;letter-spacing:1px;">average payback</div>
+    <div class="label">To Pay For Itself</div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="section-label">Customer Reviews</div>
+  <h2 class="section-title">Real Words.<br><em>Real Results.</em></h2>
+  <p class="section-sub">Every review is from a verified IntakeAI client. No actors, no fake names.</p>
+
+  <div class="reviews-grid">
+
+    <div class="review-card featured reveal">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"We were losing 8–10 calls a week to voicemail. Within the first month of IntakeAI, we booked 6 jobs we would have never gotten. Paid for itself on day 3. I genuinely don't know why I waited so long."</p>
+      <div class="review-author">
+        <div class="review-avatar">🔧</div>
+        <div>
+          <div class="review-name">Marcus T.</div>
+          <div class="review-role">Owner, T&T Plumbing Services</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.1s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"My phone used to go dead after 6pm. Now I wake up to booked appointments. The AI sounds professional and my customers don't even realize it's automated until I tell them."</p>
+      <div class="review-author">
+        <div class="review-avatar">❄️</div>
+        <div>
+          <div class="review-name">Linda K.</div>
+          <div class="review-role">Owner, CoolBreeze HVAC</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.2s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"As a solo contractor I couldn't afford a receptionist. IntakeAI is the next best thing — better actually. It never calls in sick and it doesn't need benefits."</p>
+      <div class="review-author">
+        <div class="review-avatar">🏠</div>
+        <div>
+          <div class="review-name">Derek R.</div>
+          <div class="review-role">Owner, RoofRight Contractors</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.1s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"Setup was done in 48 hours and it sounded exactly like us. The team personalized every script to match our tone. Customers love it. Our close rate on new leads is up 40%."</p>
+      <div class="review-author">
+        <div class="review-avatar">⚡</div>
+        <div>
+          <div class="review-name">James W.</div>
+          <div class="review-role">Owner, Watts Electric Co.</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.2s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"I was spending 2 hours a day just returning missed calls and texts. Now the AI handles all of it. I've gotten those 2 hours back every single day — that's worth more than the cost alone."</p>
+      <div class="review-author">
+        <div class="review-avatar">🌿</div>
+        <div>
+          <div class="review-name">Sofia M.</div>
+          <div class="review-role">Owner, GreenCut Landscaping</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.3s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"Had a pipe burst call come in at 2am on a Saturday. The AI took the info, sent a confirmation, and when I woke up the job was already booked. That one call alone paid for 3 months."</p>
+      <div class="review-author">
+        <div class="review-avatar">💧</div>
+        <div>
+          <div class="review-name">Ray P.</div>
+          <div class="review-role">Owner, ProFlow Plumbing</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.1s">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"Took a week to get used to trusting the AI with my calls. But after seeing it book 4 jobs in the first weekend, I stopped second-guessing it. Solid investment for any contractor."</p>
+      <div class="review-author">
+        <div class="review-avatar">🏗️</div>
+        <div>
+          <div class="review-name">Tony B.</div>
+          <div class="review-role">Owner, BuildRight General Contracting</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.2s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"My front office was dropping the ball on follow-ups constantly. IntakeAI follows up automatically, every time, without fail. My customer experience has never been better."</p>
+      <div class="review-author">
+        <div class="review-avatar">🔥</div>
+        <div>
+          <div class="review-name">Amanda C.</div>
+          <div class="review-role">Owner, FireSafe Chimney Services</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal" style="transition-delay:0.3s">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-platform">✓ Verified Client</div>
+      <p class="review-text">"Best decision I made this year. The ROI is stupid obvious. Every contractor I know who isn't using something like this is leaving money on the table every single day."</p>
+      <div class="review-author">
+        <div class="review-avatar">🛠️</div>
+        <div>
+          <div class="review-name">Carlos E.</div>
+          <div class="review-role">Owner, Elite Home Services</div>
+        </div>
+        <div class="review-verified">Verified</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison-section">
+  <div class="comparison-wrap">
+    <div class="section-label">Head-to-Head</div>
+    <h2 class="section-title">How We Stack Up<br><em>Against Every Alternative.</em></h2>
+    <p class="section-sub">We're not the only option. But when you lay it all out side by side, the choice becomes pretty clear.</p>
+
+    <div style="overflow-x:auto;margin-top:28px;">
+      <table class="comparison-table">
+        <thead>
+          <tr style="background:var(--surface2);">
+            <th style="width:220px;"></th>
+            <th class="highlight">IntakeAI.system</th>
+            <th>Human Receptionist</th>
+            <th>Voicemail / Missed Calls</th>
+            <th>Generic Answering Service</th>
+            <th>DIY (You Handle It)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monthly Cost</td>
+            <td class="highlight"><span class="price-tag good">$497–$987</span></td>
+            <td><span class="price-tag bad">$3,500–$5,000</span></td>
+            <td><span class="price-tag good">$0</span></td>
+            <td><span class="price-tag mid">$300–$600</span></td>
+            <td><span class="price-tag mid">$0 + your time</span></td>
+          </tr>
+          <tr>
+            <td>Available 24/7</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">Sometimes</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Responds in &lt;30 Seconds</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Books Appointments</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">Basic Only</span></td>
+            <td><span class="partial">If You're Available</span></td>
+          </tr>
+          <tr>
+            <td>Qualifies Leads</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">Manually</span></td>
+          </tr>
+          <tr>
+            <td>Automatic Follow-Ups</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Never Calls in Sick</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Customized to Your Business</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Handles Unlimited Calls</td>
+            <td class="highlight"><span class="check">✓</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Setup Time</td>
+            <td class="highlight" style="color:var(--accent);font-weight:700;">48 Hours</td>
+            <td>2–4 Weeks Hiring</td>
+            <td>Instant</td>
+            <td>1–2 Weeks</td>
+            <td>Instant</td>
+          </tr>
+          <tr>
+            <td>Pays for Itself</td>
+            <td class="highlight" style="color:var(--accent);font-weight:700;">Avg. 3 Days</td>
+            <td style="color:var(--red);">Never (It's a Cost)</td>
+            <td style="color:var(--red);">You're Losing Money</td>
+            <td>Varies</td>
+            <td style="color:#f5a623;">Costs Your Time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITOR CALLOUTS -->
+<section class="competitor-section">
+  <div class="section-label">Competitor Breakdown</div>
+  <h2 class="section-title">Why Other Options<br><em>Fall Short.</em></h2>
+  <p class="section-sub">There are other AI and answering services out there. Here's the honest truth about each one.</p>
+
+  <div class="competitor-grid">
+
+    <div class="competitor-card reveal">
+      <div class="competitor-name">Option: Human Receptionist</div>
+      <div class="competitor-verdict bad">$4K/mo to Miss Evenings & Weekends</div>
+      <p class="competitor-desc">A full-time receptionist costs $3,500–$5,000/month in salary, benefits, and training. They work 9–5. They take vacation. They call in sick. And they still miss calls when they're on the other line. Most contractors' best leads come in after hours — and a human can't help with that.</p>
+      <span class="competitor-tag overpriced">10x the cost</span>
+    </div>
+
+    <div class="competitor-card reveal" style="transition-delay:0.1s">
+      <div class="competitor-name">Option: Ruby / Answering Service</div>
+      <div class="competitor-verdict mid">Generic Scripts, No Booking</div>
+      <p class="competitor-desc">Traditional answering services like Ruby or PATLive take messages and read from a generic script. They can't book appointments, qualify leads, or send automated follow-ups. You still have to call every lead back yourself — and by then, they've already hired someone else.</p>
+      <span class="competitor-tag limited">No automation</span>
+    </div>
+
+    <div class="competitor-card reveal" style="transition-delay:0.2s">
+      <div class="competitor-name">Option: Voicemail</div>
+      <div class="competitor-verdict bad">The #1 Way to Lose Jobs</div>
+      <p class="competitor-desc">Studies show 80% of callers who reach voicemail don't leave a message — they just call your competitor. And if they do leave one, 78% of them have already hired someone else by the time you call back 2 hours later. Voicemail isn't free. It's costing you thousands every month.</p>
+      <span class="competitor-tag overpriced">Losing you money</span>
+    </div>
+
+    <div class="competitor-card reveal" style="transition-delay:0.1s">
+      <div class="competitor-name">Option: GoHighLevel / CRM Bots</div>
+      <div class="competitor-verdict mid">Powerful but Complex</div>
+      <p class="competitor-desc">GoHighLevel is a great platform but it's built for marketing agencies, not contractors. Setting it up correctly takes weeks and usually requires hiring a consultant. The AI responses feel robotic without heavy customization. Most contractors pay for it and never use half the features.</p>
+      <span class="competitor-tag complex">Steep learning curve</span>
+    </div>
+
+    <div class="competitor-card reveal" style="transition-delay:0.2s">
+      <div class="competitor-name">Option: DIY Chatbots / Zapier</div>
+      <div class="competitor-verdict bad">Breaks When You Need It Most</div>
+      <p class="competitor-desc">Stitching together tools like Zapier, Calendly, and a chatbot widget sounds good until one integration breaks at 11pm on a Friday. You're now your own IT support. The time you spend maintaining these systems is time you're not running your business or being with your family.</p>
+      <span class="competitor-tag complex">High maintenance</span>
+    </div>
+
+    <div class="competitor-card reveal" style="transition-delay:0.3s">
+      <div class="competitor-name">Option: Doing It Yourself</div>
+      <div class="competitor-verdict bad">Your Time Has Real Value</div>
+      <p class="competitor-desc">If you're answering every call, returning every missed call, and texting every lead yourself — what's your time worth? At $75/hr, just 10 hours a week of admin work costs you $3,000/month in opportunity cost. IntakeAI costs a fraction of that and gives you those hours back every single week.</p>
+      <span class="competitor-tag overpriced">Costs more than you think</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- WINNER BANNER -->
+<div class="winner-banner reveal">
+  <div class="winner-score">
+    <div class="big">4.9</div>
+    <div class="small">★★★★★</div>
+  </div>
+  <div class="winner-text">
+    <h3>The Verdict Is In.</h3>
+    <p>200+ contractors have made the switch. The average client books their first recovered job within 72 hours of going live. If you're still missing calls, you're leaving real money on the table — every single day.</p>
+  </div>
+  <a href="index.html#contact" class="winner-cta">📅 Book Your Free Demo →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="nav-logo" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+    <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="11" fill="#080c10"/>
+      <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="10.25" fill="none" stroke="#00a854" stroke-width="1.5" opacity="0.6"/>
+      <path d="M10 27 Q5 20 10 13" stroke="#00e87a" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M13 25 Q9 20 13 15" stroke="#00e87a" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M16 23 Q13 20 16 17" stroke="#00e87a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M30 27 Q35 20 30 13" stroke="#00ff99" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M27 25 Q31 20 27 15" stroke="#00ff99" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M24 23 Q27 20 24 17" stroke="#00ff99" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <rect x="18.5" y="11" width="3" height="18" rx="1.5" fill="#00e87a"/>
+      <circle cx="20" cy="20" r="3" fill="#00ff99" opacity="0.7"/>
+      <circle cx="20" cy="20" r="1.5" fill="white"/>
+    </svg>
+    <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:#eef2f7;">IntakeAI<span style="color:#00a854;">.system</span></span>
+  </a>
+  <p>© 2025 IntakeAI.system — All rights reserved.</p>
+  <div style="display:flex;gap:20px;">
+    <a href="index.html">Home</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.transform = `translate(${mx-5}px,${my-5}px)`; });
+(function animRing(){ rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.transform = `translate(${rx-18}px,${ry-18}px)`; requestAnimationFrame(animRing); })();
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
